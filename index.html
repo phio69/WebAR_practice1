@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Задание 1: WebAR с model-viewer</title>
+
+  <!-- Подключаем веб-компонент model-viewer от Google -->
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+  <style>
+    body { margin: 0; font-family: -apple-system, system-ui, sans-serif; background: #eef2f5; }
+    h1 { text-align: center; font-weight: 600; margin: 20px; }
+    model-viewer { width: 100%; height: 80vh; }
+  </style>
+</head>
+<body>
+  <h1>Моя 3D-модель в AR</h1>
+
+  <!--
+    src               — модель в формате glTF (.glb): для браузера и Android (Scene Viewer)
+    ios-src           — та же модель в формате USDZ: для iPhone (Quick Look)
+    ar                — включает AR-режим
+    ar-modes          — какие AR-режимы использовать и в каком порядке
+    environment-image — HDRI-карта для освещения модели
+    camera-controls   — вращение и масштабирование мышкой или пальцем
+  -->
+  <model-viewer
+    src="model.glb"
+    ios-src="model.usdz"
+    alt="3D-модель"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    ar-placement="floor"
+    environment-image="environment.hdr"
+    exposure="1"
+    shadow-intensity="1"
+    camera-controls
+    auto-rotate>
+  </model-viewer>
+</body>
+</html>
